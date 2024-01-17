@@ -1,13 +1,11 @@
-function executeWidgetCode() {
+const { createApp, ref } = Vue
 
-    require(["UWA/Drivers/jQuery"], function($) {
-        var myWidget = {
-            onLoadWidget: function(){
-                widget.body.innerHTML ="<p>Hello, World!</p>" + "<br/>";
-            },
-        };
-
-        widget.addEvent("onLoad", myWidget.onLoadWidget);
-        });
-}
+createApp({
+  setup() {
+    const message = ref('Hello vue!')
+    return {
+      message
+    }
+  }
+}).mount('#app')
 
