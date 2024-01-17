@@ -10,4 +10,5 @@ function increment() {
 
 <template>
   <button @click="increment">count is: {{ count }}</button>
+  <h1>Prova</h1>
 </template>
