@@ -25,23 +25,16 @@
 	<link rel="stylesheet" type="text/css" href="styles/main.css" />
 	<script type="text/javascript" src="scripts/main.js"></script>
 	
-	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
-	<div id="app">{{ message }}</div>
-
-	<script>
-	const { createApp, ref } = Vue
-
-	createApp({
-		setup() {
-		const message = ref('Hello vue!')
-		return {
-			message
+	<script type="text/javascript">
+		function widgetLoading() {
+			if (widget) {
+				executeWidgetCode();
+			} else {
+				console.warn("Defered widget Loading");
+				setTimeout(widgetLoading, 100); //Wait for widget object to be added correctly
+			}
 		}
-		}
-	}).mount('#app')
-
-	widgetLoading();
+		widgetLoading();
 	</script>
 </head>
 
