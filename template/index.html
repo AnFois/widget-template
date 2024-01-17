@@ -1,49 +1,13 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:widget="http://www.netvibes.com/ns/">
-
-<head>
-
-	<meta name="author" content="A.Fois" />
-	<meta name="description" content="3DEXPERIENCE Hello World" />
-	<meta name="apiVersion" content="1.0" />
-	<meta name="debugMode" content="true" />
-	<meta name="strictMode" content="false" />
-
-	<script type="text/javascript" src="http://uwa.netvibes.com/lib/c/UWA/js/UWA_Standalone_Alone.js"></script>
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-
-	<!-- Application Preferences -->
-	<widget:preferences>
-		<widget:preference type="text" name="Preference1" label="Type of Object" defaultValue="Demo Value" />
-		<widget:preference type="text" name="UserName" label="User Name" defaultValue="Toto" />
-	</widget:preferences>
-
-	<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="styles/gridjs.css" />
-	<link rel="stylesheet" type="text/css" href="styles/common.css" />
-	<link rel="stylesheet" type="text/css" href="styles/main.css" />
-	<script type="text/javascript" src="scripts/main.js"></script>
-	
-	<script type="text/javascript">
-		function widgetLoading() {
-			if (widget) {
-				executeWidgetCode();
-			} else {
-				console.warn("Defered widget Loading");
-				setTimeout(widgetLoading, 100); //Wait for widget object to be added correctly
-			}
-		}
-		widgetLoading();
-	</script>
-</head>
-
-<body class="d-flex flex-column h-100">
-
-	<div id="app">
-		<div class="container-fluid" >
-		</div>
-	</div>
-</body>
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
