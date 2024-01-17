@@ -1,0 +1,14 @@
+[v-cloack] {
+  display:none;
+}
+.header{
+  padding: 15px 0;
+  margin-bottom:25px;
+}
+
+.header p{
+  font-weight:bolder;
+  color: #444;
+  font-size:20px;
+  margin-bottom:0;
+}
