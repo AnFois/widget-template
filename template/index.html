@@ -32,7 +32,19 @@
 	<div id="app">
 	</div>
 	
-	<script src="scripts/main.js"></script>
+	<script type="text/javascript" src="scripts/main.js"></script>
+	
+	<script type="text/javascript">
+		function widgetLoading() {
+			if (widget) {
+				executeWidgetCode();
+			} else {
+				console.warn("Defered widget Loading");
+				setTimeout(widgetLoading, 100); //Wait for widget object to be added correctly
+			}
+		}
+		widgetLoading();
+	</script>
 </body>
 
 </html>
