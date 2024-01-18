@@ -1,11 +1,5 @@
-const { createApp, ref } = Vue
+const app = Vue.createApp({
+  template: '<h1>Prova</h1>'
+})
 
-createApp({
-  setup() {
-    const message = ref('Hello vue!')
-    return {
-      message
-    }
-  }
-}).mount('#app')
-
+app.mount('#app')
