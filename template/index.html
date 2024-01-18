@@ -3,14 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:widget="http://www.netvibes.com/ns/">
 
 <head>
-	<title>3DEXPERIENCE Widget Template</title>
+
 	<meta name="author" content="A.Fois" />
 	<meta name="description" content="3DEXPERIENCE Hello World" />
 	<meta name="apiVersion" content="1.0" />
 	<meta name="debugMode" content="true" />
 	<meta name="strictMode" content="false" />
 
-	<script type="text/javascript" src="http://uwa.netvibes.com/lib/c/UWA/js/UWA_Standalone_Alone.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
 	<!-- Application Preferences -->
@@ -23,15 +22,6 @@
 	<link rel="stylesheet" type="text/css" href="styles/gridjs.css" />
 	<link rel="stylesheet" type="text/css" href="styles/common.css" />
 	<link rel="stylesheet" type="text/css" href="styles/main.css" />
-	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-	
-</head>
-
-<body class="d-flex flex-column h-100">
-
-	<div id="app" data-v-app>
-	</div>
-
 	<script type="text/javascript" src="scripts/main.js"></script>
 	
 	<script type="text/javascript">
@@ -45,6 +35,21 @@
 		}
 		widgetLoading();
 	</script>
+</head>
+
+<body class="d-flex flex-column h-100">
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<div id="app">
+		<div v-if="show">
+			<p>Prova prova</p>
+		</div>
+
+		<button @click="toggleShow" style="background-color: blue; color: aliceblue;">
+			{{ message }}
+		</button>
+	</div>
+
+	<script src="scripts/app.js"></script>
 </body>
 
 </html>
