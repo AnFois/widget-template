@@ -27,18 +27,19 @@
 		<widget:preference type="text" name="integrity" label="Integrity Token" defaultValue="" />
 	</widget:preferences>
 
-	<link rel="stylesheet" href="style/bootstrap.min.css" />
-	<link rel="stylesheet" href="style/common.css" />
+	<link rel="stylesheet" href="styles/bootstrap.min.css" />
+	<link rel="stylesheet" href="styles/common.css" />
 
 </head>
 <body class="d-flex flex-column h-100">
 	<div id="app" style="padding:15px">
-		
+		<my-navbar></my-navbar>
 		<h4>Custom Widgets Template</h4>
 		<div v-if="show">
 			<p>Prova prova</p>
 		</div>
 		<button class="btn btn-success" type="button" v-on:click="toggleShow()">{{ message }}</button>
+		<my-component></my-component>
 	</div>
 </body>
 </html>
