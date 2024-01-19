@@ -3,55 +3,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:widget="http://www.netvibes.com/ns/">
 
 <head>
+	<title>Custom Widgets Template</title>
 
-	<meta name="author" content="A.Fois" />
-	<meta name="description" content="3DEXPERIENCE Hello World" />
-	<meta name="apiVersion" content="1.0" />
-	<meta name="debugMode" content="true" />
-	<meta name="strictMode" content="false" />
-
+	<meta name="author" content="Hermes Reply" />
+	<meta name="description" content="Custom Widgets Template"/>
+	<meta name="apiVersion" content="1" />
+		
 	<script type="text/javascript" src="https://uwa.netvibes.com/lib/c/UWA/js/UWA_Standalone_Alone.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
-	<!-- Application Preferences -->
-	<widget:preferences>
-		<widget:preference type="text" name="Preference1" label="Type of Object" defaultValue="Demo Value" />
-		<widget:preference type="text" name="UserName" label="User Name" defaultValue="Toto" />
-	</widget:preferences>
-
-	<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="styles/gridjs.css" />
-	<link rel="stylesheet" type="text/css" href="styles/common.css" />
-	<link rel="stylesheet" type="text/css" href="styles/main.css" />
 	<script type="text/javascript" src="scripts/main.js"></script>
-	
-	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 	<script type="text/javascript">
 		function widgetLoading() {
-			if (widget) {
-				executeWidgetCode();
-			} else {
-				console.warn("Defered widget Loading");
-				setTimeout(widgetLoading, 100); //Wait for widget object to be added correctly
-			}
+			if (widget) executeWidgetCode();
+			else setTimeout(widgetLoading, 100);
 		}
 		widgetLoading();
 	</script>
+
+	<!-- Application Preferences -->
+	<widget:preferences>
+		<widget:preference type="hidden" name="apiUrl" label="API Url" defaultValue="http://localhost:3000/" />
+		<widget:preference type="text" name="integrity" label="Integrity Token" defaultValue="" />
+	</widget:preferences>
+
+	<link rel="stylesheet" href="style/bootstrap.min.css" />
+	<link rel="stylesheet" href="style/common.css" />
+
 </head>
-
 <body class="d-flex flex-column h-100">
-	<script src="scripts/main.js"></script>
-
-	<div id="app">
-		<div v-if="show">
-			<p>Prova prova</p>
-		</div>
-
-		<button @click="toggleShow" style="background-color: blue; color: aliceblue;">
-			{{ message }}
-		</button>
+	<div id="app" style="padding:15px">
+		
+		<h4>Custom Widgets Template</h4>
+		<button class="btn btn-success" type="button" v-on:click="toggleShow()">{{ message }}</button>
 	</div>
-	
 </body>
-
 </html>
+
+
+
+
