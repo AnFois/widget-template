@@ -1,6 +1,6 @@
 function executeWidgetCode() {
 
-    require( ["scripts/vue.min"],   function(Vue) {
+    require( ["scripts/vue.min", "DS/DataDragAndDrop/DataDragAndDrop"],   function(Vue, DataDragAndDrop) {
 
         Vue.component('my-component', {
             template:`
@@ -31,6 +31,24 @@ function executeWidgetCode() {
 
                 navigateTo: async function(page){
                     return this.currentPage = page;
+                },
+
+                dropzone: function(eltHTML){
+                    DataDragAndDrop.droppable(eltHTML[0], {
+                        drop: function(data){
+                           console.log('Drop data ' + data);
+                           var dataDnD = JSON.parse(data);
+                           var physicalid = dataDnD.data.items[0].objId;
+                           widget.body.style="border:5px hidden;"
+                           myWidget.displayInfo({physicalid: physicalid});
+                        },
+                        enter: function(){
+                            widget.body.style="border:5px solid orange;"
+                        },
+                        leave: function(){
+                            widget.body.style="border:5px hidden;"
+                        }
+                     });                 
                 },
             }
         });
