@@ -38,27 +38,27 @@ function executeWidgetCode() {
                 },
 
                 makeDroppable: function () {
-                    var dropElement = document.body.getElementbyId("space");
+                    var dropElement = document.getElementById("space");
                     DataDragAndDrop.droppable(dropElement, {
                         drop: function(data){
                             var arrayData=[];
                             arrayData.push(data);
                             this.fullData = arrayData;
                             this.displayData = true;
-                            widget.body.style="border:5px hidden;"
+                            dropElement.style="border:5px hidden;"
                         },
                         enter: function(){
                             console.log("Enter");
-                            widget.body.style="border:5px solid orange;"
+                            dropElement.style="border:5px solid orange;"
                         },
                         leave: function(){
                             console.log("Leave");
-                            widget.body.style="border:5px solid red;"
+                            dropElement.style="border:5px solid red;"
                             
                         },
                         over: function(){
                             console.log("Over");
-                            widget.body.style="border:5px solid orange;"
+                            dropElement.style="border:5px solid orange;"
                         } 
                         
                     })
