@@ -39,26 +39,27 @@ function executeWidgetCode() {
 
                 makeDroppable: function () {
                     var dropElement = document.getElementById("space");
+                    var borderDiv = document.getElementById("borderDiv");
                     DataDragAndDrop.droppable(dropElement, {
                         drop: function(data){
                             var arrayData=[];
                             arrayData.push(data);
                             this.fullData = arrayData;
                             this.displayData = true;
-                            dropElement.style="border:5px hidden;"
+                            borderDiv.style="border:5px hidden;"
                         },
                         enter: function(){
                             console.log("Enter");
-                            dropElement.style="border:5px solid orange;"
+                            borderDiv.style="border:5px solid orange;"
                         },
                         leave: function(){
                             console.log("Leave");
-                            dropElement.style="border:5px solid red;"
+                            borderDiv.style="border:5px solid red;"
                             
                         },
                         over: function(){
                             console.log("Over");
-                            dropElement.style="border:5px solid orange;"
+                            borderDiv.style="border:5px solid orange;"
                         } 
                         
                     })
