@@ -5,7 +5,7 @@ function executeWidgetCode() {
             el: '#app',
 
             data: {
-               show: false,
+               show: true,
                message: "Showww!!"
             },
 
