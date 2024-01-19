@@ -38,6 +38,7 @@ function executeWidgetCode() {
                 },
 
                 makeDroppable: function () {
+                    var dropElement = widget.body.getElementbyId("space");
                     DataDragAndDrop.droppable(dropElement, {
                         drop: function(data){
                             var arrayData=[];
