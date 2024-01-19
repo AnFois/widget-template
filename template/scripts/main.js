@@ -20,13 +20,18 @@ function executeWidgetCode() {
 
             data: {
                show: true,
-               message: "Showww!!"
+               message: "Showww!!",
+               currentPage: "#index"
             },
 
             methods: {
                 toggleShow: function() {
                     this.show = !this.show;
-                }
+                },
+
+                navigateTo: async function(page){
+                    return this.currentPage = page;
+                },
             }
         });
     });
