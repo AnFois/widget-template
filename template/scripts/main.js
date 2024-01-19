@@ -50,16 +50,16 @@ function executeWidgetCode() {
                         },
                         enter: function(){
                             console.log("Enter");
-                            borderDiv.style="border:5px solid orange;"
+                            borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid green;"
                         },
                         leave: function(){
                             console.log("Leave");
-                            borderDiv.style="border:5px solid red;"
+                            borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid red;"
                             
                         },
                         over: function(){
                             console.log("Over");
-                            borderDiv.style="border:5px solid orange;"
+                            borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid orange;"
                         } 
                         
                     })
