@@ -21,7 +21,8 @@ function executeWidgetCode() {
             data: {
                show: true,
                message: "Showww!!",
-               currentPage: "#index"
+               currentPage: "#index",
+               dataFull: []
             },
 
             methods: {
@@ -31,6 +32,37 @@ function executeWidgetCode() {
 
                 navigateTo: async function(page){
                     return this.currentPage = page;
+                },
+
+                displayData: function(arrData) {
+                    var objctInfo = arrData[0];
+                    var rang = 0;
+                    var $wdgBody = $(widget.body);
+                    $wdgBody.empty();
+    
+                    var $table = $("<table></table>");
+    
+                    $table.append("<thead><tr><th>Attribute Name</th><th>Attribute Value</th></tr></thead>");
+    
+                    var $tBody = $("<tbody></tbody>");
+                    if(arrData && arrData.length >0){
+                        var keysLst = Object.keys(objctInfo);
+                        for (var i = 0; i < keysLst.length; i++) {
+                            if(rang <= 15){
+                                if(objctInfo[keysLst[i]] && objctInfo[keysLst[i]].length >0){
+                                    var $tr = $(`<tr><td>${keysLst[i]}</td><td>${objctInfo[keysLst[i]]}</td></tr>`);
+                                    $tr.on("click", myWidget.clicOnRow);
+                                    $tBody.append($tr);
+                                    rang++;
+                                }
+                            }else{
+                                break;
+                            }
+                        }
+                      }
+                    $table.append($tBody);
+                    $wdgBody.append($table);
+                    myWidget.dropzone($wdgBody);
                 },
 
                 dropzone: function(eltHTML){
