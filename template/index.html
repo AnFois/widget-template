@@ -39,6 +39,7 @@
 </head>
 
 <body class="d-flex flex-column h-100">
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 	<div id="app">
 		<div v-if="show">
 			<p>Prova prova</p>
@@ -47,30 +48,10 @@
 		<button @click="toggleShow" style="background-color: blue; color: aliceblue;">
 			{{ message }}
 		</button>
+
+		<script src="scripts/main.js"></script>
 	</div>
 	
-	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			// Carica Vue come modulo
-			import('https://unpkg.com/vue@3/dist/vue.esm-browser.js').then((Vue) => {
-				const app = Vue.createApp({
-					data() {
-						return {
-							show: true,
-							message: "Show"
-						};
-					},
-					methods: {
-						toggleShow() {
-							this.show = !this.show;
-						}
-					}
-				});
-
-				app.mount('#app');
-			});
-		});
-	</script>
 </body>
 
 </html>
