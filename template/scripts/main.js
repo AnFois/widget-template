@@ -72,6 +72,12 @@ function executeWidgetCode() {
                 },
             }
         });
+
+        widget.addEvent('onLoad', function(){
+            widget.addEvent('onRefresh', function(preferences){
+                myWidgetApp.makeDroppable();
+            })
+        })
     });
         
 }
