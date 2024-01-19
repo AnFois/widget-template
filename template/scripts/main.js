@@ -50,7 +50,7 @@ function executeWidgetCode() {
                         },
                         enter: function(){
                             console.log("Enter");
-                            borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid green;"
+                            this.displayData = true;
                         },
                         leave: function(){
                             console.log("Leave");
