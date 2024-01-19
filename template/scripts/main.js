@@ -4,15 +4,16 @@ function executeWidgetCode() {
 
         Vue.component('my-component', {
             template:`
-            <div class="card" style="width: 18rem; margin-top:20px">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-            </div>
-            </div>`
+            <div id="dropObj" style="border: dashed #22BC3C; background-color: #F0FFF3;
+                color: black;text-align: center; display: flex; flex-direction: column; 
+                justify-content: center; align-items: center; font-size: 18px;">
+                <div v-for="(r, index) in fullData" v-bind="r">
+                <b>{{r.title}}</b></div>
+                <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-file-earmark-check" viewBox="0 0 16 16">
+                <path d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+                <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+                </svg></div></div>`
         });
 
         let myWidgetApp = new Vue({
@@ -22,7 +23,8 @@ function executeWidgetCode() {
                show: true,
                message: "Showww!!",
                currentPage: "#index",
-               dataFull: []
+               fullData: [],
+               displayData: false
             },
 
             methods: {
@@ -34,53 +36,39 @@ function executeWidgetCode() {
                     return this.currentPage = page;
                 },
 
-                displayData: function(arrData) {
-                    var objctInfo = arrData[0];
-                    var rang = 0;
-                    var $wdgBody = $(widget.body);
-                    $wdgBody.empty();
+                makeDroppable: function () {
+                    var allElems = widget.body.querySelectorAll(".dragEligible");
+                    for (var i = 0; i < allElems.length; i++) {
+                        DataDragAndDrop.droppable(allElems[i], {
+                            drop: function (data) {
+                                this.fullData = JSON.parse(data).data.items.map(
+                                    (e) => {
+                                        this.callData();
+                                        if (e.objectType === "VPMReference") {
+                                            if (this.dataAttrEng.length) {
+                                                this.dataAttrEng.length = 0
+                                            }
+                                            this.dataEng(e.objectId);
+                                        }
+                                        if (this.dataClassAttr) {
+                                            this.dataClassAttr.length = 0;
+                                        }
+                                        this.classAttr(e.objectId);
+                                        return {
+                                            title: e.displayName,
+                                            type: e.objectType,
+                                            id: e.objectId,
+                                            revision: e.version
+                                        }
+                                    })
+                                var myButton = document.getElementById("generateEIN");
+                                myButton.disabled = false;
     
-                    var $table = $("<table></table>");
-    
-                    $table.append("<thead><tr><th>Attribute Name</th><th>Attribute Value</th></tr></thead>");
-    
-                    var $tBody = $("<tbody></tbody>");
-                    if(arrData && arrData.length >0){
-                        var keysLst = Object.keys(objctInfo);
-                        for (var i = 0; i < keysLst.length; i++) {
-                            if(rang <= 15){
-                                if(objctInfo[keysLst[i]] && objctInfo[keysLst[i]].length >0){
-                                    var $tr = $(`<tr><td>${keysLst[i]}</td><td>${objctInfo[keysLst[i]]}</td></tr>`);
-                                    $tr.on("click", myWidget.clicOnRow);
-                                    $tBody.append($tr);
-                                    rang++;
-                                }
-                            }else{
-                                break;
                             }
-                        }
-                      }
-                    $table.append($tBody);
-                    $wdgBody.append($table);
-                    myWidget.dropzone($wdgBody);
-                },
-
-                dropzone: function(eltHTML){
-                    DataDragAndDrop.droppable(eltHTML[0], {
-                        drop: function(data){
-                           console.log('Drop data ' + data);
-                           var dataDnD = JSON.parse(data);
-                           var physicalid = dataDnD.data.items[0].objId;
-                           widget.body.style="border:5px hidden;"
-                           myWidget.displayInfo({physicalid: physicalid});
-                        },
-                        enter: function(){
-                            widget.body.style="border:5px solid orange;"
-                        },
-                        leave: function(){
-                            widget.body.style="border:5px hidden;"
-                        }
-                     });                 
+                        });
+                        this.displayData = true;
+                        this.makeDroppable();
+                    }
                 },
             }
         });
