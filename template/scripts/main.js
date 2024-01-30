@@ -52,8 +52,7 @@ function executeWidgetCode() {
                             this.displayData = false;
                         },
                         over: function(){
-                            borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid orange;";
-                            
+                            borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid orange;";                            
                             this.displayData = false;
                         } 
                         
