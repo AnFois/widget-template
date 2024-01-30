@@ -42,6 +42,7 @@ function executeWidgetCode() {
                     var borderDiv = document.getElementById("borderDiv");
                     DataDragAndDrop.droppable(dropElement, {
                         drop: function(data){
+                            console.log("drop");
                             var arrayData=[];
                             arrayData.push(data);
                             this.fullData = arrayData;
@@ -50,11 +51,11 @@ function executeWidgetCode() {
                         },
                         enter: function(){
                             console.log("Enter");
-                            this.displayData = true;
                         },
                         leave: function(){
                             console.log("Leave");
                             borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid red;"
+                            this.displayData = true;
                             
                         },
                         over: function(){
