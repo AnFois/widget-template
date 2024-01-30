@@ -23,6 +23,7 @@ function executeWidgetCode() {
             data: {
                show: true,
                fullData: [],
+               displayDaya : false,
             },
 
             methods: {
@@ -40,17 +41,22 @@ function executeWidgetCode() {
                     DataDragAndDrop.droppable(dropElement, {
                         drop: function(data){
                             console.log("Drop");
+                            this.displayDaya = true;
+                            borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid #118921; color: #118921"
                         },
                         enter: function(){
                             console.log("Enter");
+                            this.displayDaya = false;
                         },
                         leave: function(){
                             console.log("Leave");
+                            this.displayDaya = false;
                             borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid red;"                            
                             
                         },
                         over: function(){
                             console.log("Over");
+                            this.displayDaya = false;
                             borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid orange;"
                         } 
                         
