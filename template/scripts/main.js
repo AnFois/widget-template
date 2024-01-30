@@ -52,13 +52,13 @@ function executeWidgetCode() {
                         leave: function(){
                             console.log("Leave");
                             this.displayData = false;
-                            borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid red;"                            
+                            //borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid red;"                            
                             
                         },
                         over: function(){
                             console.log("Over");
                             this.displayData = false;
-                            borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid orange;"
+                            //borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid orange;"
                         } 
                         
                     })
