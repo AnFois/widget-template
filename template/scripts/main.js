@@ -40,25 +40,21 @@ function executeWidgetCode() {
                     var borderDiv = document.getElementById("borderDiv");
                     DataDragAndDrop.droppable(dropElement, {
                         drop: function(data){
-                            console.log("Drop");
+                            borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid #118921; color: #118921";        
                             this.displayData = !this.displayData;
-                            console.log("Display: ", this.displayData);
-                            //borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid #118921; color: #118921"
                         },
                         enter: function(){
                             console.log("Enter");
                             this.displayData = false;
                         },
                         leave: function(){
-                            console.log("Leave");
+                            borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid red;";                                                        
                             this.displayData = false;
-                            //borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid red;"                            
-                            
                         },
                         over: function(){
-                            console.log("Over");
+                            borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid orange;";
+                            
                             this.displayData = false;
-                            //borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid orange;"
                         } 
                         
                     })
