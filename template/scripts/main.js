@@ -43,7 +43,7 @@ function executeWidgetCode() {
                             console.log("Drop");
                             this.displayData = !this.displayData;
                             console.log("Display: ", this.displayData);
-                            borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid #118921; color: #118921"
+                            //borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid #118921; color: #118921"
                         },
                         enter: function(){
                             console.log("Enter");
