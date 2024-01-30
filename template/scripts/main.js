@@ -22,10 +22,7 @@ function executeWidgetCode() {
 
             data: {
                show: true,
-               message: "Showww!!",
-               currentPage: "#index",
                fullData: [],
-               displayData: false
             },
 
             methods: {
@@ -42,20 +39,14 @@ function executeWidgetCode() {
                     var borderDiv = document.getElementById("borderDiv");
                     DataDragAndDrop.droppable(dropElement, {
                         drop: function(data){
-                            console.log("drop");
-                            var arrayData=[];
-                            arrayData.push(data);
-                            this.fullData = arrayData;
-                            this.displayData = true;
-                            borderDiv.style="border:5px hidden;"
+                            console.log("Drop");
                         },
                         enter: function(){
                             console.log("Enter");
                         },
                         leave: function(){
                             console.log("Leave");
-                            borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid red;"
-                            this.displayData = true;
+                            borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid red;"                            
                             
                         },
                         over: function(){
