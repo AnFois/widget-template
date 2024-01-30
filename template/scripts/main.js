@@ -42,6 +42,7 @@ function executeWidgetCode() {
                         drop: function(data){
                             borderDiv.style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; border: solid #118921; color: #118921";        
                             this.displayData = !this.displayData;
+                            myWidgetApp.makeDroppable();
                         },
                         enter: function(){
                             console.log("Enter");
