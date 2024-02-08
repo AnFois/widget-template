@@ -3,7 +3,7 @@ function executeWidgetCode() {
     require( ["scripts/vue.min", "DS/DataDragAndDrop/DataDragAndDrop"],   function(Vue, DataDragAndDrop) {
 
         Vue.component('my-component', {
-            props:['fullData'],
+            props:['displayData'],
             template:`
             <div id="borderDiv" style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;
 				border: dashed #2B3669; color: #2B3669;
