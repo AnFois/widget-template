@@ -59,6 +59,10 @@ function executeWidgetCode() {
                         
                     })
                 },
+
+                newFunctionUpdate: function (){
+                    console.log("MODIFICA PER SOFTWARE DESIGN TEST!!");
+                }
             }
         });
 
